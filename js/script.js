@@ -12,5 +12,10 @@ document.getElementById("play").addEventListener("click", function () {
         let content = document.createElement("span");
         square.append(content);
         content.textContent = i + 1;
+
+        square.addEventListener("click", function () {
+            this.classList.toggle("bg-azure")
+            console.log("Hai cliccato la", i + 1, "cella")
+        })
     }
 })
