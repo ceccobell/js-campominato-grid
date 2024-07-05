@@ -23,3 +23,23 @@ img {
     padding: 5px 20px;
     cursor: pointer;
 }
+
+#grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 10%;
+    padding-top: 10%;
+    background-color: cyan;
+    position: relative;
+}
+
+.square span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
