@@ -4,7 +4,7 @@ const grid = document.getElementById("grid")
 document.getElementById("play").addEventListener("click", function () {
     // recupero l'elemento grid in cui mettere i quadrati
     let difficulty = document.getElementById("difficulty").value
-
+    grid.innerHTML = ""
     let squares_num = 0
     if (difficulty == "hard") {
         squares_num = 49
@@ -25,13 +25,14 @@ document.getElementById("play").addEventListener("click", function () {
 })
 
 
-function createSquare(num, size) {
+
+function createSquare(text, size) {
     let element = document.createElement("div");
     element.classList.add("square", size);
 
     let content = document.createElement("span");
     element.append(content);
-    content.textContent = num + 1;
+    content.textContent = text + 1;
 
     return element
 }
