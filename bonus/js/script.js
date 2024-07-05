@@ -5,31 +5,38 @@ document.getElementById("play").addEventListener("click", function () {
     // recupero l'elemento grid in cui mettere i quadrati
     let difficulty = document.getElementById("difficulty").value
 
+    let squares_num = 0
     if (difficulty == "hard") {
-        createSquare(49, "hard")
+        squares_num = 49
+        size = "hard"
     } else if (difficulty == "medium") {
-        createSquare(81, "medium")
+        squares_num = 81
+        size = "medium"
     } else if (difficulty == "easy") {
-        createSquare(100, "easy")
+        squares_num = 100
+        size = "easy"
+    }
+
+    for (let i = 0; i < squares_num; i++) {
+        let square = createSquare(i, size)
+        grid.append(square)
+        changeColorEvent(square, i)
     }
 })
 
-function createSquare(value, size) {
-    for (let i = 0; i < value; i++) {
 
-        let square = document.createElement("div");
-        square.classList.add("square", size);
-        grid.append(square)
+function createSquare(num, size) {
+    let element = document.createElement("div");
+    element.classList.add("square", size);
 
-        let content = document.createElement("span");
-        square.append(content);
-        content.textContent = i + 1;
+    let content = document.createElement("span");
+    element.append(content);
+    content.textContent = num + 1;
 
-        changeColor(square, i)
-    }
+    return element
 }
 
-function changeColor(square, i) {
+function changeColorEvent(square, i) {
     square.addEventListener("click", function () {
         this.classList.toggle("bg-azure")
         console.log("Hai cliccato la", i + 1, "cella")
